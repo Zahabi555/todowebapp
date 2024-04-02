@@ -1,4 +1,12 @@
-def get_todos(filepath=r"C:\Users\ramiz\PycharmProjects\todowebapp\todos.txt"):# todos.txt is default now
+import os
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+default_filepath = os.path.join(current_dir, "todos.txt")
+
+
+
+def get_todos(filepath=default_filepath):# todos.txt is default now
     """
     This function reads a file and returns a list of to-do items
     """
@@ -8,7 +16,7 @@ def get_todos(filepath=r"C:\Users\ramiz\PycharmProjects\todowebapp\todos.txt"):#
     return todos_local
 
 
-def write_todos(string, filepath=r"C:\Users\ramiz\PycharmProjects\todowebapp\todos.txt"):
+def write_todos(string, filepath=default_filepath):
     with open(filepath, 'w',encoding='utf-8') as file:
         todos_local = file.writelines(string)
 
